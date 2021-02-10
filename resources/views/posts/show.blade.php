@@ -7,7 +7,7 @@
     <h1>Hello, {{ $post->name }}</h1>
 
 
-    <a href="/posts" class="btn btn-small btn-primary"><<< Voltar</a>
+    <a href="{{ url()->previous() }}" class="btn btn-small btn-primary"><<< Voltar</a>
 
 
 

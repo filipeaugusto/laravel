@@ -1,12 +1,14 @@
 <x-layout>
 
     <x-slot name="title">
-        Show, users
+        Users
     </x-slot>
 
-    <h1>Show users</h1>
+    <x-slot name="page_heading">
+    Users listing
+    </x-slot>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -24,12 +26,15 @@
                 <td>{{ $data->email }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>
-                    <a href="/users/{{$data->id}}" class="btn btn-small btn-warning">View</a>
-                    <a href="/users/{{$data->id}}" class="btn btn-small btn-info">Edit</a>
-                    <a href="/users/{{$data->id}}" class="btn btn-small btn-danger">Delete</a>
+                    <x-inputs.button :data="$data" :class="'btn-warning'" :fa="'fa-list'"> view</x-inputs.button>
+                    <x-inputs.button :data="$data" :class="'btn-info'" :fa="'fa-edit'"> edit</x-inputs.button>
+                    <x-inputs.button :data="$data" :class="'btn-danger'" :fa="'fa-trash-o'"> delete</x-inputs.button>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
+    {{ $users->links() }}
+
 </x-layout>

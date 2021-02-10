@@ -7,7 +7,8 @@
     <h1>Hello, {{ $user->name }}</h1>
 
 
-    <a href="/users" class="btn btn-small btn-primary"><<< Voltar</a>
+
+    <a href="{{ url()->previous() }}" class="btn btn-small btn-primary"><<< Voltar</a>
 
     <div class="col-md-12">
         <div>

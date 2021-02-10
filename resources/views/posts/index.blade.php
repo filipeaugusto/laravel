@@ -1,12 +1,14 @@
 <x-layout>
 
     <x-slot name="title">
-        Show, posts
+        Posts
     </x-slot>
 
-    <h1>Show posts</h1>
+    <x-slot name="page_heading">
+        Posts listing
+    </x-slot>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -22,9 +24,9 @@
                 <td>{{ $data->name }}</td>
                 <td>{{ $data->created_at }}</td>
                 <td>
-                    <a href="/posts/{{$data->id}}" class="btn btn-small btn-warning">View</a>
-                    <a href="/posts/{{$data->id}}" class="btn btn-small btn-info">Edit</a>
-                    <a href="/posts/{{$data->id}}" class="btn btn-small btn-danger">Delete</a>
+                    <x-inputs.button :data="$data" :class="'btn-warning'" :fa="'fa-list'"> view</x-inputs.button>
+                    <x-inputs.button :data="$data" :class="'btn-info'" :fa="'fa-edit'"> edit</x-inputs.button>
+                    <x-inputs.button :data="$data" :class="'btn-danger'" :fa="'fa-trash-o'"> delete</x-inputs.button>
                 </td>
             </tr>
         @endforeach
